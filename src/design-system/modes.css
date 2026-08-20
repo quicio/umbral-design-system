@@ -1,0 +1,8 @@
+.mode-operativo { --accent: #FF6B47; }
+.mode-humano { --accent: #E7FF4F; }
+.mode-lab { --accent: #C7B6FF; }
+.mode-card { display: grid; gap: var(--space-4); border: 1px solid var(--line-subtle); border-radius: var(--radius-md); padding: var(--space-6); background: var(--surface); }
+.mode-card > span { font-family: var(--font-mono); color: var(--accent); text-transform: uppercase; font-size: 11px; }
+.mode-card.mode-operativo { --accent: #FF6B47; }
+.mode-card.mode-humano { --accent: #E7FF4F; }
+.mode-card.mode-lab { --accent: #C7B6FF; }

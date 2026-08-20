@@ -1,0 +1,47 @@
+:root {
+  --bg: #090A0C;
+  --surface: #111317;
+  --surface-raised: #171A1F;
+
+  --line: #292D34;
+  --line-subtle: #1D2026;
+
+  --text: #F2F3F5;
+  --text-secondary: #C3C7CF;
+  --muted: #9297A3;
+
+  --success: #65D67A;
+  --warning: #F4CF3A;
+  --error: #FF6B5D;
+
+  --accent: #E7FF4F;
+  --accent-ink: #101204;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  --font-ui: 'Geist', 'Space Grotesk', Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --row-height: 44px;
+  --control-height: 40px;
+  --panel-pad: var(--space-6);
+  --motion-fast: 120ms cubic-bezier(.2,.8,.2,1);
+  --motion-normal: 180ms cubic-bezier(.2,.8,.2,1);
+}
+
+[data-accent='caleta'], .accent-caleta { --accent: #E7FF4F; --accent-ink: #101204; }
+[data-accent='operativo'], .accent-operativo { --accent: #FF6B47; --accent-ink: #180704; }
+[data-accent='parametrico'], .accent-parametrico { --accent: #C7B6FF; --accent-ink: #0E0B16; }
+
+.density-compact { --row-height: 34px; --control-height: 34px; --panel-pad: var(--space-4); }
+.density-comfortable { --row-height: 44px; --control-height: 40px; --panel-pad: var(--space-6); }

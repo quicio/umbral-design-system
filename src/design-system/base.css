@@ -1,0 +1,16 @@
+* { box-sizing: border-box; }
+html { background: var(--bg); color: var(--text); font-family: var(--font-ui); scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+::selection { background: color-mix(in srgb, var(--accent) 28%, transparent); color: var(--text); }
+.umbral { min-height: 100vh; background: radial-gradient(circle at 72% 4%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 30%), var(--bg); color: var(--text); }
+.u-kicker, .u-panel__title, .u-status, .u-badge, .u-tag, .u-param span, th, code { font-family: var(--font-mono); letter-spacing: .06em; }
+h1,h2,h3,p { margin: 0; }
+h1 { font-size: clamp(48px, 9vw, 124px); line-height: .82; letter-spacing: -.07em; font-weight: 700; }
+h2 { font-size: clamp(28px, 5vw, 64px); line-height: .92; letter-spacing: -.055em; font-weight: 650; }
+h3 { font-size: 20px; line-height: 1.08; letter-spacing: -.03em; }
+p { color: var(--text-secondary); line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 1px solid var(--accent); outline-offset: 3px; }
