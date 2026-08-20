@@ -4,8 +4,8 @@
 .u-nav { position: sticky; top: 0; z-index: 10; display: flex; gap: var(--space-2); padding: var(--space-3) var(--space-12); border-bottom: 1px solid var(--line-subtle); background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(10px); overflow-x: auto; }
 .u-nav a { height: 30px; display: inline-flex; align-items: center; padding: 0 var(--space-3); color: var(--muted); font-size: 13px; border-radius: var(--radius-sm); white-space: nowrap; }
 .u-nav a:hover, .u-nav a.is-active { color: var(--text); background: var(--surface); }
-.u-panel { background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid var(--line-subtle); border-radius: var(--radius-md); padding: var(--panel-pad); min-width: 0; }
-.u-panel:hover { border-color: var(--line); transition: border-color var(--motion-normal); }
+.u-panel { background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid var(--line-subtle); border-radius: var(--radius-md); padding: var(--panel-pad); min-width: 0; transition: border-color var(--motion-normal); }
+.u-panel:hover { border-color: var(--line); }
 .u-panel__title { color: var(--muted); text-transform: uppercase; font-size: 11px; margin-bottom: var(--space-4); }
 .u-button { height: var(--control-height); display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); padding: 0 var(--space-4); border: 1px solid var(--line); background: transparent; color: var(--text); transition: background var(--motion-fast), border-color var(--motion-fast), transform var(--motion-fast); }
 .u-button:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); background: color-mix(in srgb, var(--surface-raised) 80%, transparent); }
@@ -19,7 +19,8 @@
 .u-field { display: grid; gap: var(--space-2); color: var(--muted); font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; }
 .u-field small { color: var(--error); text-transform: none; letter-spacing: 0; }
 .u-input, .u-select { height: var(--control-height); display: flex; align-items: center; gap: var(--space-2); border: 1px solid var(--line-subtle); border-radius: var(--radius-sm); padding: 0 var(--space-3); color: var(--text-secondary); background: var(--bg); }
-.u-input:focus-within, .u-select:hover { border-color: var(--line); }
+.u-input:focus-within, .u-select:hover, .u-select:focus-within { border-color: var(--line); }
+.u-select__native { flex: 1; border: 0; outline: 0; min-width: 0; background: transparent; color: var(--text); font: inherit; appearance: none; -webkit-appearance: none; }
 .u-input.has-error { border-color: color-mix(in srgb, var(--error) 60%, var(--line)); }
 .u-input input { flex: 1; border: 0; outline: 0; min-width: 0; background: transparent; color: var(--text); }
 .u-segmented, .u-tabs { display: inline-flex; padding: var(--space-1); background: var(--bg); border: 1px solid var(--line-subtle); border-radius: var(--radius-sm); }
@@ -31,9 +32,12 @@
 .u-badge, .u-tag, .u-status { display: inline-flex; align-items: center; gap: 7px; min-height: 24px; border: 1px solid var(--line-subtle); border-radius: 999px; padding: 0 9px; color: var(--text-secondary); font-size: 10px; }
 .u-badge i, .u-status i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .tone-accent { color: var(--accent); }.tone-success { color: var(--success); }.tone-warning { color: var(--warning); }.tone-error { color: var(--error); }.tone-muted { color: var(--muted); }
-.u-check { display: flex; align-items: center; gap: var(--space-2); color: var(--text-secondary); }
-.u-check span { width: 17px; height: 17px; display: inline-grid; place-items: center; border: 1px solid var(--line); border-radius: 4px; }
+.u-check { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--text-secondary); cursor: pointer; }
+.u-check__input { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.u-check > span:not(.u-check__input) { width: 17px; height: 17px; display: inline-grid; place-items: center; border: 1px solid var(--line); border-radius: 4px; }
 .u-check .is-checked { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
+.u-check:hover > span:not(.u-check__input) { border-color: var(--accent); }
+.u-check__input:focus-visible + span { outline: 1px solid var(--accent); outline-offset: 3px; }
 .u-toggle { width: 44px; height: 24px; padding: 3px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); }
 .u-toggle i { display: block; width: 16px; height: 16px; border-radius: 50%; background: var(--muted); transition: transform var(--motion-normal), background var(--motion-normal); }
 .u-toggle.is-on i { transform: translateX(18px); background: var(--accent); }
@@ -45,9 +49,10 @@
 .u-param strong { font-family: var(--font-mono); font-weight: 500; }
 .u-param button { height: 26px; border: 1px solid var(--line-subtle); border-radius: 6px; background: transparent; color: var(--text-secondary); }
 .u-divider { border: 0; border-top: 1px solid var(--line-subtle); margin: var(--space-4) 0; }
-.u-tooltip { position: relative; display: inline-flex; color: var(--accent); font-family: var(--font-mono); font-size: 11px; }
-.u-tooltip span { position: absolute; left: 0; bottom: calc(100% + 8px); width: 180px; opacity: 0; pointer-events: none; padding: var(--space-2); border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface-raised); color: var(--text-secondary); transition: opacity var(--motion-fast); }
-.u-tooltip:hover span { opacity: 1; }
+.u-tooltip { position: relative; display: inline-flex; color: var(--accent); font-family: var(--font-mono); font-size: 11px; cursor: help; }
+.u-tooltip > span[role="tooltip"] { position: absolute; left: 0; bottom: calc(100% + 8px); width: 180px; opacity: 0; pointer-events: none; padding: var(--space-2); border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface-raised); color: var(--text-secondary); transition: opacity var(--motion-fast); }
+.u-tooltip:hover > span[role="tooltip"], .u-tooltip:focus-within > span[role="tooltip"] { opacity: 1; }
+.u-tooltip:focus { outline: 1px solid var(--accent); outline-offset: 3px; }
 .u-modal { border: 1px solid var(--line-subtle); border-radius: var(--radius-md); padding: var(--space-4); background: color-mix(in srgb, var(--bg) 70%, transparent); }
 .u-modal > div { max-width: 360px; display: grid; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
 .u-empty { min-height: 160px; display: grid; place-items: center; align-content: center; gap: var(--space-2); text-align: center; border: 1px dashed var(--line); border-radius: var(--radius-md); color: var(--muted); }

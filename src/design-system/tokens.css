@@ -8,7 +8,7 @@
 
   --text: #F2F3F5;
   --text-secondary: #C3C7CF;
-  --muted: #9297A3;
+  --muted: #A8AEB8;
 
   --success: #65D67A;
   --warning: #F4CF3A;
@@ -45,3 +45,7 @@
 
 .density-compact { --row-height: 34px; --control-height: 34px; --panel-pad: var(--space-4); }
 .density-comfortable { --row-height: 44px; --control-height: 40px; --panel-pad: var(--space-6); }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --motion-fast: 0ms; --motion-normal: 0ms; }
+}
