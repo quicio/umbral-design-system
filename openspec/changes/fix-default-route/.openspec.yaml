@@ -1,0 +1,4 @@
+schema: spec-driven
+created: 2026-08-20
+goal: Make npm run dev land on the living style guide by default instead of an
+  empty placeholder.

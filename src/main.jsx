@@ -199,12 +199,12 @@ function DesignSystemPage() {
   return <AppShell mode="lab"><Header/><Navigation/><main className="doc-layout"><aside><Panel title="Principio"><p>Si dudas entre agregar algo o eliminarlo: elimínalo.</p><CommandBar/><div className="icon-row"><IconButton icon={Settings}/><IconButton icon={Bell}/><IconButton icon={Terminal}/><IconButton icon={Database}/><IconButton icon={Gauge}/><IconButton icon={Layers3}/><IconButton icon={SlidersHorizontal}/><IconButton icon={Activity}/></div></Panel></aside><div className="doc-main"><Section id="color" eyebrow="01 · Tokens" title="Color, acentos y fuente única de verdad"><TokenSwatches/><Panel title="Accent packs"><div className="accent-packs"><div data-accent="caleta"><b>Caleta</b><span>humano / cotidiano</span></div><div data-accent="operativo"><b>Operativo</b><span>acción técnica</span></div><div data-accent="parametrico"><b>Paramétrico</b><span>visualización experimental</span></div></div></Panel></Section><Section id="typography" eyebrow="02 · Typography" title="Sans para interfaz, mono para datos"><Typography/></Section><Section id="spacing" eyebrow="03 · Spacing & density" title="Aire estructural, densidad variable"><Panel><div className="spacing-demo">{['1','2','3','4','6','8','12'].map(s=><span key={s} style={{width:`var(--space-${s})`,height:`var(--space-${s})`}}>{s}</span>)}</div><SegmentedControl/></Panel></Section><Section id="components" eyebrow="04 · Components" title="Componentes base y estados"><ComponentGrid/></Section><Section id="data" eyebrow="05 · Data" title="Componentes para interfaces técnicas"><DataComponents/></Section><Section id="charts" eyebrow="06 · Charts" title="Primitivas de datos y momentos paramétricos"><Charts/></Section><Section id="modes" eyebrow="07 · Expression modes" title="Operativo, Humano, Laboratorio"><Modes/></Section><Section id="motion" eyebrow="08 · Motion" title="Movimiento mínimo, feedback preciso"><div className="motion-rule"><p>Motion existe para cambios de estado, navegación, aparición/desaparición, feedback y visualizaciones. Nunca para impresionar.</p><EmptyState/><Modal/></div></Section></div></main></AppShell>;
 }
 
-function ProductShell() {
-  return <AppShell mode="operativo"><Header/><main className="doc-layout"><div className="doc-main"><Panel title="UMBRAL · Producto"><p>Esta superficie es donde vivirían los productos que consumen el sistema. Definir contenido, accent pack y modo sin tocar el lenguaje visual.</p></Panel></div></main></AppShell>;
-}
-
 function Home() {
-  return location.pathname === '/design-system' ? <DesignSystemPage /> : <ProductShell />;
+  if (location.pathname !== '/design-system') {
+    location.replace('/design-system');
+    return null;
+  }
+  return <DesignSystemPage />;
 }
 
 createRoot(document.getElementById('root')).render(<Home />);
