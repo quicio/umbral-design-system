@@ -1,6 +1,8 @@
-.mode-operativo { --accent: #FF6B47; }
-.mode-lab { --accent: #C7B6FF; }
+.mode-operativo { --accent: #FF6B47; --accent-ink: #180704; }
+.mode-lab { --accent: #C7B6FF; --accent-ink: #0E0B16; }
+.theme-light .mode-operativo, .theme-light .mode-card.mode-operativo { --accent: #E84F2A; --accent-ink: #FFFFFF; }
+.theme-light .mode-lab, .theme-light .mode-card.mode-lab { --accent: #6B4FE0; --accent-ink: #FFFFFF; }
 .mode-card { display: grid; gap: var(--space-4); border: 1px solid var(--line-subtle); border-radius: var(--radius-md); padding: var(--space-6); background: var(--surface); }
 .mode-card > span { font-family: var(--font-mono); color: var(--accent); text-transform: uppercase; font-size: 11px; }
-.mode-card.mode-operativo { --accent: #FF6B47; }
-.mode-card.mode-lab { --accent: #C7B6FF; }
+.mode-card.mode-operativo { --accent: #FF6B47; --accent-ink: #180704; }
+.mode-card.mode-lab { --accent: #C7B6FF; --accent-ink: #0E0B16; }

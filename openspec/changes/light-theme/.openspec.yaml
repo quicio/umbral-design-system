@@ -1,0 +1,4 @@
+schema: spec-driven
+created: 2026-08-20
+goal: Provide a light palette that passes WCAG AA on all text/surface pairs and
+  keeps the system's sharp, dense, monospace-accented feel.

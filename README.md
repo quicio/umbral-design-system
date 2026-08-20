@@ -46,6 +46,24 @@ Cada modo reasigna `--accent` a uno de los accent packs. La elección de modo + 
 
 Los accent packs también pueden usarse directamente vía `[data-accent="caleta|operativo|parametrico"]` sin cambiar de modo.
 
+## Temas
+
+El sistema ofrece dos temas con la misma estructura visual. El default es oscuro; el claro se activa con la clase `.theme-light` en la raíz.
+
+```html
+<html class="theme-light"> … </html>
+```
+
+Los accents cambian de carácter entre temas para mantener legibilidad sobre el fondo:
+
+| Pack          | Dark accent | Light accent | Personalidad                          |
+| ------------- | ----------- | ------------ | ------------------------------------- |
+| `caleta`      | `#E7FF4F`   | `#B8D900`    | Amarillo-verde cálido, cotidiano.     |
+| `operativo`   | `#FF6B47`   | `#E84F2A`    | Naranja incandescente, decisión.      |
+| `parametrico` | `#C7B6FF`   | `#6B4FE0`    | Lavanda saturada, exploración.        |
+
+Todos los pares accent↔fondo y texto↔fondo cumplen WCAG AA en ambos temas. Espaciado, radios, tipografía y motion son idénticos entre temas: el sistema se siente igual.
+
 ## Accesibilidad
 
 El sistema cumple los requisitos definidos en `openspec/specs/accessibility/spec.md`:

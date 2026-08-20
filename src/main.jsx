@@ -14,8 +14,20 @@ const cx = (...v) => v.filter(Boolean).join(' ');
 function AppShell({ children, mode = 'lab', density = 'comfortable' }) {
   return <div className={cx('umbral', `mode-${mode}`, `density-${density}`)}>{children}</div>;
 }
+function ThemeToggle() {
+  const [theme, setTheme] = useState(() => (typeof document !== 'undefined' && document.documentElement.classList.contains('theme-light') ? 'light' : 'dark'));
+  useEffect(() => {
+    document.documentElement.classList.toggle('theme-light', theme === 'light');
+  }, [theme]);
+  return (
+    <div className="u-segmented" role="group" aria-label="Tema">
+      <button type="button" aria-pressed={theme === 'dark'} className={theme === 'dark' ? 'is-active' : ''} onClick={() => setTheme('dark')}>Dark</button>
+      <button type="button" aria-pressed={theme === 'light'} className={theme === 'light' ? 'is-active' : ''} onClick={() => setTheme('light')}>Light</button>
+    </div>
+  );
+}
 function Header() {
-  return <header className="u-header"><div><p className="u-kicker">Sistema de Diseño</p><h1>UMBRAL</h1></div><div className="u-header__meta"><span>v0.1</span><span>tokens / primitives / components</span></div></header>;
+  return <header className="u-header"><div><p className="u-kicker">Sistema de Diseño</p><h1>UMBRAL</h1></div><div className="u-header__actions"><ThemeToggle/><div className="u-header__meta"><span>v0.1</span><span>tokens / primitives / components</span></div></div></header>;
 }
 function Navigation() {
   const items = ['Color','Typography','Spacing','Components','Data','Charts','Modes','Motion'];

@@ -49,3 +49,24 @@
 @media (prefers-reduced-motion: reduce) {
   :root { --motion-fast: 0ms; --motion-normal: 0ms; }
 }
+
+.theme-light {
+  --bg: #FAFAF7;
+  --surface: #FFFFFF;
+  --surface-raised: #FFFFFF;
+
+  --line: #E2E4E8;
+  --line-subtle: #EEF0F3;
+
+  --text: #0E0F12;
+  --text-secondary: #4A4F58;
+  --muted: #6B7280;
+
+  --success: #1F8C3A;
+  --warning: #A26B00;
+  --error: #C73E2D;
+}
+
+.theme-light [data-accent='caleta'], .theme-light .accent-caleta { --accent: #B8D900; --accent-ink: #101204; }
+.theme-light [data-accent='operativo'], .theme-light .accent-operativo { --accent: #E84F2A; --accent-ink: #FFFFFF; }
+.theme-light [data-accent='parametrico'], .theme-light .accent-parametrico { --accent: #6B4FE0; --accent-ink: #FFFFFF; }
